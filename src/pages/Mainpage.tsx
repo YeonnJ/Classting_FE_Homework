@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
+import StartQuiz from "../components/StartQuiz";
 
 const Mainpage = () => {
   useEffect(() => {
@@ -10,7 +11,11 @@ const Mainpage = () => {
       .then((res) => console.log(res.data.results))
       .catch((err) => console.log(err));
   }, []);
-  return <></>;
+  return (
+    <>
+      <StartQuiz />
+    </>
+  );
 };
 
 export default Mainpage;
