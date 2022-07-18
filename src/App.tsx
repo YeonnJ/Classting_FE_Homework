@@ -1,5 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Mainpage from "./pages/Mainpage";
+
 function App() {
-  return <>클래스팅 과제 시작!</>;
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Mainpage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
