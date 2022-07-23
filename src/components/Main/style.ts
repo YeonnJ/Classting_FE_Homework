@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* background-color: tomato; */
   align-items: center;
+  justify-content: center;
   display: flex;
   margin: 10% auto;
   max-width: 768px;
@@ -18,5 +18,7 @@ export const ContentsContainer = styled.div`
     border-radius: 10%;
     cursor: pointer;
     background-color: greenyellow;
+    justify-content: center;
+    align-items: center;
   }
 `;
