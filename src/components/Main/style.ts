@@ -4,20 +4,16 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
-  margin: 10% auto;
-  max-width: 768px;
-  min-width: 360px;
-`;
+  flex-direction: column;
+  margin: auto;
 
-export const ContentsContainer = styled.div`
   button {
     border: 0;
     padding: 20px;
-    margin-left: 30%;
-    margin-top: 5%;
-    border-radius: 10%;
+    border-radius: 10px;
     cursor: pointer;
-    background-color: greenyellow;
+    background-color: #548C7C;
+    color:wheat;
     justify-content: center;
     align-items: center;
   }
