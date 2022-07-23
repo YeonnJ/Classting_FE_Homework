@@ -1,29 +1,24 @@
-import { useState } from "react";
-import { quizInfoTypes } from "./quiz.types";
-import { QuizWrapper } from "./style";
+import { quizInfoTypes } from "../quiz.types.js";
+import { Difficulty, QuizWrapper } from "./style";
 
 interface Props {
   quizInfo?: quizInfoTypes;
-  maxLength: number;
-  order: number;
-  onNextQuiz: () => void;
+  order?: number;
 }
 
-const QuizQuestion = ({ quizInfo, order, maxLength, onNextQuiz }: Props) => {
+const QuizQuestion = ({ quizInfo,order }: Props) => {
   return (
     <>
       <QuizWrapper>
         <>
           <ul key={quizInfo?.question}>
-            <p>{quizInfo?.difficulty}</p>
-            <p>{quizInfo?.question}</p>
+            <h1>Q{order + 1}</h1>
+            <h2>{quizInfo?.question}</h2>
           </ul>
         </>
-        {order === maxLength ? (
-          <button onClick={onNextQuiz}>{"처음으로"}</button>
-        ) : (
-          <button onClick={onNextQuiz}>{"다음문제"}</button>
-        )}
+        
+        <Difficulty>난이도 : {quizInfo?.difficulty}</Difficulty>
+
       </QuizWrapper>
     </>
   );

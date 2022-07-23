@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import QuizQuestion from "../components/QuizQuestion";
-import { quizInfoTypes } from "../components/QuizQuestion/quiz.types";
+import QuizAnswer from "../components/QuizAnswer"
+import styled from "styled-components";
 
 const QuizPage = () => {
   const [quizInfo, setQuizInfo] = useState([]);
@@ -17,7 +18,7 @@ const QuizPage = () => {
 
   useEffect(() => {
     axios
-      .get("https://opentdb.com/api.php?amount=5&category=10")
+      .get("https://opentdb.com/api.php?amount=10&category=10")
       .then((res) => {
         setQuizInfo(res?.data?.results);
         console.log(res);
@@ -26,16 +27,29 @@ const QuizPage = () => {
   }, []);
 
   if (!quizInfo.length) return <div>로딩...</div>;
+
   return (
     <>
-      <QuizQuestion
-        quizInfo={quizInfo[order]}
-        maxLength={quizInfo?.length}
-        order={order}
-        onNextQuiz={onNextQuiz}
-      />
+      <Container>
+        <QuizQuestion
+            quizInfo={quizInfo[order]}
+            order={order} 
+        />
+
+        <QuizAnswer 
+          quizInfo={quizInfo[order]} 
+          onNextQuiz={onNextQuiz} 
+          order={order}  
+          maxLength={quizInfo?.length}
+        />
+      </Container>
+     
     </>
   );
 };
 
 export default QuizPage;
+
+export const Container = styled.div ` 
+flex-direction: column;
+`
