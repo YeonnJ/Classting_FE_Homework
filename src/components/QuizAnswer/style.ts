@@ -43,8 +43,8 @@ export const AnswerBtn = styled.button`
   width: 100%;
   cursor: pointer;
   border-radius: 5px;
-  /* color: wheat; */
   background: ${(props) => (props?.disabled ? "lightgray": "#548C7C" )};
+
   color: ${(props) => (props?.disabled ? "black": "wheat" )};
 `
 

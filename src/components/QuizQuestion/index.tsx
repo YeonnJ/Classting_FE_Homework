@@ -1,18 +1,21 @@
-import { quizInfoTypes } from "../quiz.types.js";
+import { quizInfoTypes } from "../../quiz.types";
 import { Difficulty, QuizWrapper } from "./style";
 
 interface Props {
   quizInfo?: quizInfoTypes;
-  order?: number;
+  maxLength: number;
+  order: number;
+  onNextQuiz: () => void;
 }
 
 const QuizQuestion = ({ quizInfo,order }: Props) => {
+
   return (
     <>
       <QuizWrapper>
         <>
           <ul key={quizInfo?.question}>
-            <h1>Q{order + 1}</h1>
+             <h1>Q{order+1}</h1>
             <h2>{quizInfo?.question}</h2>
           </ul>
         </>
