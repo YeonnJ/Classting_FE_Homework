@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { quizInfoTypes } from "../quiz.types";
-import {  AnswerBtn, AnswerResult, AnswerWrapper, QuizList, Red } from "./style"
+import ResultPage from "../../pages/ResultPage";
+import { quizInfoTypes } from "../../quiz.types";
+import {  AnswerBtn, AnswerResult, QuizList, Red } from "./style"
 
 interface Props {
   quizInfo?: quizInfoTypes;
@@ -11,22 +12,34 @@ interface Props {
 
 const QuizAnswer = ({ quizInfo, order, maxLength, onNextQuiz }: Props) => {
   const [correct, setCorrect] = useState(false)
+  const [correctNum, setCorrectNum] = useState(1)
   const [isClicked, setClicked] = useState(false)
+
+  let stCorrectNum = correctNum.toString()
+  let stInCorrectNum =   (10 - (correctNum-1)).toString()
+
+  function shuffle(arr:string[]) {
+    arr.sort(() => Math.random() - 0.5);
+  }
   
   let totalAnswer = [] //전체문항 목록
   let correctAnswer = quizInfo?.correct_answer //정답 
   let inCorrect_Answer = quizInfo?.incorrect_answers //오답 
   
   totalAnswer.push(correctAnswer, ...inCorrect_Answer)
+  shuffle(totalAnswer);
 
-const onClick = (e : React.ChangeEvent<HTMLInputElement>) => {
+const onClick = (e:any) => {
     const { value } = e.target;
     setClicked(true)
-
+    
     if(value === correctAnswer) {
       setCorrect(true)
+      setCorrectNum(correctNum+1)
+      sessionStorage.setItem("정답수", stCorrectNum)
     }  else {
       setCorrect(false)
+      sessionStorage.setItem("오답수", stInCorrectNum)
     }
 };
 
@@ -41,16 +54,14 @@ const onClick = (e : React.ChangeEvent<HTMLInputElement>) => {
         {isClicked &&  
           <AnswerResult>
             {correct ? <p>정답입니다 😃</p> : <Red>오답입니다 🥲</Red>}
-            {order === maxLength  ? (
-              <button onClick={onNextQuiz}>{"처음으로"}</button>
-            ) : (
-              <button onClick={goNext}>{"다음문제"}</button>
-            )}
+
+          <button onClick={goNext}>{"다음문제"}</button>
+
           </AnswerResult>
         }
 
         {totalAnswer?.map((item) => (
-          <AnswerBtn 
+          <AnswerBtn
             disabled={isClicked} 
             onClick={onClick} 
             value={item}>

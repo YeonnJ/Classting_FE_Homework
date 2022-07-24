@@ -11,7 +11,7 @@ const Main = () => {
     <>
       <Container>
         <h1>청소년 독서퀴즈 :)</h1>
-        <button onClick={onClick}>퀴즈 풀러가기!</button>
+        <button onClick={onClick}>퀴즈 시작!</button>
       </Container>
     </>
   );
