@@ -1,6 +1,6 @@
 import Main from "../components/Main";
 
-const Mainpage = () => {
+const MainPage = () => {
   return (
     <>
       <Main />
@@ -8,4 +8,4 @@ const Mainpage = () => {
   );
 };
 
-export default Mainpage;
+export default MainPage;
