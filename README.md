@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# 클래스팅 프론트엔드 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3>😃 퀴즈 웹앱만들기 😃</h3>
 
-## Available Scripts
+### 배포주소
 
-In the project directory, you can run:
+https://gentle-bombolone-e91b62.netlify.app/
 
-### `yarn start`
+### 프로젝트 실행 방법
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+git clone https://github.com/YeonnJ/Classting_FE_Homework.git
+npm install
+npm run start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br/>
 
-### `yarn test`
+## 🎨 협업
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `프로젝트 진행 프로세스`
 
-### `yarn build`
+1. 요구사항 분석
+2. 이슈 등록
+3. feature 브랜치 생성
+4. 개발 완료 후 dev로 pull request 생성 후 병합, feature branch 제거
+5. 1~4번 반복
+6. 모든 개발 완료 후 master 병합 및 운영 배포
+   <br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `📝 Git Flow`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **master**
+  - 메인 브랜치
+  - 배포용 브랜치
+- **dev**
+  - 최종 개발 브랜치
+  - 각 기능 브랜치들이 하나로 병합되는 지점
+- **feature**
+  - 기능 개발 브랜치
+  - 실제 브랜치명은 각 구현 기능명
+- **hotfix**
+  - 에러 수정용 브랜치
+  - Product에서 발생한 오류를 긴급히 수정하여 배포 할 경우 사용  
+    <br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `📝 Commit Message`
 
-### `yarn eject`
+- feat: 새로운 기능추가
+- fix: 버그 수정
+- refactor: 코드 리팩토링
+- style: 코드포맷팅, 세미콜론 누락, 코드변경이 없는경우
+- test: 테스트코드, 리팩토링 테스트 코드추가
+- chore: 빌드업무 수정, 패키지 매니저 수정
+- docs: README.md와 같은 단순 문서 작업
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+</br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

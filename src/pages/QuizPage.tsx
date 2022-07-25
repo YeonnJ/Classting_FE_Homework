@@ -1,13 +1,28 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import QuizQuestion from "../components/QuizQuestion";
 import QuizAnswer from "../components/QuizAnswer"
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const QuizPage = ({quizInfo}:any) => {
+const QuizPage = () => {
   const navigate = useNavigate()
   const [order, setOrder] = useState(0);
+   // The counter
+  const [count, setCount] = useState<number>(0)
+   // Dynamic delay
+  const [delay, setDelay] = useState<number>(1000)
+  const [quizInfo, setQuizInfo] = useState([]);
 
+  useEffect(() => {
+    axios
+      .get("https://opentdb.com/api.php?amount=10&category=10")
+      .then((res) => {
+        setQuizInfo(res?.data?.results);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  
   const onNextQuiz = () => {
     if (order >= quizInfo.length) {
       setOrder(0);
