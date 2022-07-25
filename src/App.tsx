@@ -7,25 +7,13 @@ import QuizPage from "./pages/QuizPage";
 import ResultPage from "./pages/ResultPage";
 
 function App() {
-
-  const [quizInfo, setQuizInfo] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://opentdb.com/api.php?amount=10&category=10")
-      .then((res) => {
-        setQuizInfo(res?.data?.results);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  
   return (
     <>
       <BrowserRouter>
       <Container>
       <Routes>
           <Route path="/" element={<Mainpage />} />
-          <Route path="/quiz" element={<QuizPage quizInfo={quizInfo}/>} />
+          <Route path="/quiz" element={<QuizPage />} />
           <Route path="/result" element={<ResultPage />} />
         </Routes>
       </Container>
